@@ -37,21 +37,28 @@ class GuideResource extends Resource implements HasShieldPermissions
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([
-                TextColumn::make('name')->sortable()->searchable(),
-                TextColumn::make('email')->sortable()->searchable(),
-                TextColumn::make('phone')->sortable()->searchable(),
-                TextColumn::make('bio')->limit(50),
-            ])
-            ->filters([
-                //
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
+        ->columns([
+            TextColumn::make('name')->sortable()->searchable(),
+            TextColumn::make('email')->sortable()->searchable(),
+            TextColumn::make('phone')->sortable()->searchable(),
+            TextColumn::make('bio')->limit(50),
+        ])
+        ->filters([
+            //
+        ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
     }
 
     public static function getPages(): array
@@ -74,5 +81,4 @@ class GuideResource extends Resource implements HasShieldPermissions
             'publish'
         ];
     }
-
 }
